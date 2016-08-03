@@ -13,7 +13,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var tweets : [Tweet]!
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var refreshControl: UIRefreshControl!
+
     @IBAction func onLogout(sender: AnyObject) {
         TwitterClient.sharedInstance.logout()
     }
@@ -26,7 +27,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(TweetsViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
 
         
@@ -43,21 +44,21 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         })
     }
 
-    func refreshControlAction(refreshControl: UIRefreshControl) {
-        
+    func refresh() {
+        print("refreshControlAction...")
+
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         TwitterClient.sharedInstance.homeTimeline({ (tweets: [Tweet]) -> () in
             self.tweets = tweets
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
             self.tableView.reloadData()
+            print("refreshed...")
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
             }, failure: {(error: NSError) -> () in
                 print("error")
                 // Do any additional setup after loading the view.
                 
         })
-        
-        self.tableView.reloadData()
-        refreshControl.endRefreshing()
+        self.refreshControl.endRefreshing()
      
     }
 
@@ -85,5 +86,20 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         // Dispose of any resources that can be recreated.
     }
 
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == "detailViewSegueId") {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+        
+            let tweetDetailViewController = segue.destinationViewController as! TweetDetailViewController
+        
+            tweetDetailViewController.tweet = tweet
+        }
+        print("prepare for segue")
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+
 }

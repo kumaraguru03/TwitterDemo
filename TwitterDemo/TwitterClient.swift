@@ -69,6 +69,39 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func createNewTweet(params: NSDictionary, success: (Tweet) -> (), failure: (NSError) -> ()) {
+        POST("1.1/statuses/update.json", parameters: params, progress: nil, success: {(task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            let tweet = Tweet(dictionary: response as! NSDictionary)
+            
+            print("Created tweet:\n\(tweet.text)")
+            success(tweet)
+        }) { (task: NSURLSessionDataTask?, error: NSError!) -> Void in
+            failure(error)
+            print("Tweet creation failed. Reason: \(error)")
+        }
+        
+    }
+    
+    func retweetTweet(id: String) {
+        let params = ["id": id]
+        POST("1.1/statuses/retweet/\(id).json", parameters: params, progress:nil, success: {(task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("Retweeting tweet: \(id)")
+            }) { (task: NSURLSessionDataTask?, error: NSError!) -> Void in
+                print("error retweeting tweet")
+        }
+    }
+    
+    // API call to favorite a tweet
+    func favoriteTweet(id: String) {
+        let params = ["id": id]
+        POST("1.1/favorites/create.json", parameters: params, progress:nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("Favoriting tweet: \(id)")
+            }) {(task: NSURLSessionDataTask?, error: NSError!) -> Void in
+                print("error retweeting tweet")
+        }
+    }
+    
     func currentAccount(success: (User) -> (), failure: (NSError) -> ()) {
         GET("/1.1/account/verify_credentials.json", parameters: nil, progress: nil,
                    success: {(task: NSURLSessionDataTask, response: AnyObject?) -> Void in

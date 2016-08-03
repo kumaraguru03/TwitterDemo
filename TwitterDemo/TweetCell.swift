@@ -23,7 +23,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var retweetButton: UIImageView!
     @IBOutlet weak var replyButton: UIImageView!
     
-    @IBOutlet weak var createdAtLabel: UILabel!
+    @IBOutlet weak var timeSinceLabel: UILabel!
     
     var tweet: Tweet! {
         didSet {
@@ -32,7 +32,7 @@ class TweetCell: UITableViewCell {
             nameLabel.text = nil
             screenNameLabel.text = nil
             tweetTextLabel.text = nil
-            createdAtLabel.text = nil
+            timeSinceLabel.text = nil
             
             // Set up current state
             nameLabel.text = tweet.user?.name
@@ -44,7 +44,7 @@ class TweetCell: UITableViewCell {
             if let profileImageURL = tweet.user?.profileImageUrl {
                 profileImageView.setImageWithURL(NSURL(string: profileImageURL)!)
             }
-            createdAtLabel.text = tweet.timeSinceString
+            timeSinceLabel.text = tweet.timeSinceString
         }
     }
     

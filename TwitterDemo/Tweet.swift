@@ -16,7 +16,10 @@ class Tweet: NSObject {
     var timeSinceString: String?
     var id: String?
     var retweetCount: Int = 0
-    
+    var favoritesCount: Int = 0
+    var retweeted: Bool?
+    var favorited: Bool?
+
     class func tweetTimeStampAsString(timestamp: NSDate) -> String {
         let ti = -Int(timestamp.timeIntervalSinceNow)
         var timeAsString: String?
@@ -42,14 +45,15 @@ class Tweet: NSObject {
         createdAtString = dictionary["created_at"] as? String
         id = dictionary["id_str"] as? String
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
-        
+        favoritesCount = (dictionary["favorite_count"] as? Int)!
+        retweeted = dictionary["retweeted"] as? Bool
+        favorited = dictionary["favorited"] as? Bool
+
         let formatter = NSDateFormatter()
         
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         createdAt = formatter.dateFromString(createdAtString!)
         timeSinceString = Tweet.tweetTimeStampAsString(createdAt!)
-        print("Tweet was Created At: \(createdAt!)")
-        print("Tweet was created \(Tweet.tweetTimeStampAsString(createdAt!)) ago")
     }
     
     
