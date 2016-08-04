@@ -80,7 +80,6 @@ class TwitterClient: BDBOAuth1SessionManager {
             failure(error)
             print("Tweet creation failed. Reason: \(error)")
         }
-        
     }
     
     func retweetTweet(id: String) {
