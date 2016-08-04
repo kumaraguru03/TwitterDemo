@@ -13,7 +13,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var tweets : [Tweet]!
     
     @IBOutlet weak var tableView: UITableView!
-    var refreshControl: UIRefreshControl!
 
     @IBAction func onLogout(sender: AnyObject) {
         TwitterClient.sharedInstance.logout()
@@ -25,9 +24,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.delegate = self
         tableView.dataSource = self
 
+        
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(TweetsViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
 
         
@@ -44,21 +44,19 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         })
     }
 
-    func refresh() {
-        print("refreshControlAction...")
+    func refresh(refreshControl: UIRefreshControl) {
 
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         TwitterClient.sharedInstance.homeTimeline({ (tweets: [Tweet]) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
             print("refreshed...")
-            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            refreshControl.endRefreshing()
+
             }, failure: {(error: NSError) -> () in
-                print("error")
+                print("error in refreshing")
                 // Do any additional setup after loading the view.
                 
         })
-        self.refreshControl.endRefreshing()
      
     }
 

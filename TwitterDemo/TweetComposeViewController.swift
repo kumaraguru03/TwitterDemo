@@ -21,10 +21,15 @@ class TweetComposeViewController: UIViewController {
         
         TwitterClient.sharedInstance.currentAccount({ (user: User) -> () in
             self.nameLabel.text = user.name
-            self.screenNameLabel.text = user.screenname
+            let sn = (user.screenname)! as String
+            self.screenNameLabel.text = "@\(sn)"
+            
             if let profileImageURL = user.profileImageUrl {
                 self.profileImageLabel.setImageWithURL(NSURL(string: profileImageURL)!)
             }
+            self.profileImageLabel.layer.cornerRadius = 5
+            self.profileImageLabel.clipsToBounds = true
+
             
             }, failure: {(error: NSError) -> () in
                 print("error")
@@ -32,10 +37,10 @@ class TweetComposeViewController: UIViewController {
     }
 
     @IBAction func onTweetButton(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
         TwitterClient.sharedInstance.createNewTweet(["status": self.newTweetViewText.text], success: { (tweet: Tweet) -> () in
             
             print("Tweet created")
-            self.dismissViewControllerAnimated(true, completion: nil)
             
             }, failure: {(error: NSError) -> () in
                 print("error")
@@ -45,7 +50,7 @@ class TweetComposeViewController: UIViewController {
     }
     
     @IBAction func onCancel(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

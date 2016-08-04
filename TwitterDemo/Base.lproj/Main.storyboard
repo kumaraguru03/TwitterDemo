@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="162.40000000000001" y="368.72666666666669"/>
         </scene>
-        <!--Tweets View Controller-->
+        <!--Home-->
         <scene sceneID="GHQ-Zp-W5l">
             <objects>
                 <viewController id="Ezd-Nh-VBV" customClass="TweetsViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,45 +51,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="maC-Hq-bWD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="maC-Hq-bWD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="101" id="skC-3n-Mqb" customClass="TweetCell" customModule="TwitterDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="101"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="105" id="skC-3n-Mqb" customClass="TweetCell" customModule="TwitterDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="skC-3n-Mqb" id="eqN-Wi-QEs">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="100.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="104.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GgA-ZK-az2">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GgA-ZK-az2">
                                                     <rect key="frame" x="8" y="8" width="62" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="62" id="I0h-6E-Y7f"/>
+                                                        <constraint firstAttribute="height" constant="60" id="qZ2-Dc-H6G"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xi-g7-HON">
-                                                    <rect key="frame" x="78" y="7" width="102" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xi-g7-HON">
+                                                    <rect key="frame" x="78" y="7" width="95" height="16"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="this is a tweet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4C7-mI-zB3">
-                                                    <rect key="frame" x="78" y="29" width="283" height="35"/>
+                                                    <rect key="frame" x="78" y="29" width="239" height="60"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="screen name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDL-dr-Bev">
-                                                    <rect key="frame" x="188" y="8" width="142" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" fixedFrame="YES" text="screen name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDL-dr-Bev">
+                                                    <rect key="frame" x="186" y="7" width="107" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oE-U2-7Qn">
-                                                    <rect key="frame" x="318" y="7" width="16" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oE-U2-7Qn">
+                                                    <rect key="frame" x="301" y="7" width="16" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2Xi-g7-HON" firstAttribute="leading" secondItem="GgA-ZK-az2" secondAttribute="trailing" constant="8" id="8v4-kI-uRh"/>
+                                                <constraint firstItem="4oE-U2-7Qn" firstAttribute="top" secondItem="eqN-Wi-QEs" secondAttribute="top" constant="7" id="INC-9O-aqJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="GgA-ZK-az2" secondAttribute="bottom" constant="36.5" id="N3t-Ij-Sca"/>
+                                                <constraint firstItem="GgA-ZK-az2" firstAttribute="top" secondItem="eqN-Wi-QEs" secondAttribute="top" constant="8" id="U2o-yg-4mg"/>
+                                                <constraint firstItem="2Xi-g7-HON" firstAttribute="top" secondItem="eqN-Wi-QEs" secondAttribute="top" constant="7" id="fsf-u0-CLc"/>
+                                                <constraint firstItem="GgA-ZK-az2" firstAttribute="leading" secondItem="eqN-Wi-QEs" secondAttribute="leading" constant="8" id="lX7-sC-ZhN"/>
+                                                <constraint firstAttribute="trailing" secondItem="4oE-U2-7Qn" secondAttribute="trailing" constant="25" id="ppg-dT-NMh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="2Xi-g7-HON" id="EN0-wz-k8i"/>
@@ -105,8 +118,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Tdu-st-8TS">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="VEs-g3-4IG">
+                    <navigationItem key="navigationItem" title="Home" id="Tdu-st-8TS">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="VEs-g3-4IG">
                             <connections>
                                 <action selector="onLogout:" destination="Ezd-Nh-VBV" id="lOM-Oh-yvN"/>
                             </connections>
@@ -147,7 +160,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="screen name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSo-dv-lk3">
                                         <rect key="frame" x="79" y="100" width="168" height="25"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Im-x1-BKo">
@@ -202,64 +215,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="tweet view" translatesAutoresizingMaskIntoConstraints="NO" id="gBp-O5-ypH">
-                                <rect key="frame" x="0.0" y="64" width="375" height="188"/>
+                                <rect key="frame" x="8" y="64" width="359" height="188"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="siW-ZR-2XW">
-                                        <rect key="frame" x="8" y="8" width="66" height="64"/>
+                                        <rect key="frame" x="0.0" y="8" width="66" height="64"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbI-FF-MQO">
-                                        <rect key="frame" x="90" y="8" width="179" height="21"/>
+                                        <rect key="frame" x="74" y="8" width="191" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="screen name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifU-m8-vb5">
-                                        <rect key="frame" x="90" y="37" width="179" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="this is a tweet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPz-EJ-ys0">
-                                        <rect key="frame" x="8" y="80" width="359" height="64"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="this is a tweet" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPz-EJ-ys0">
+                                        <rect key="frame" x="0.0" y="80" width="351" height="100"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1/29/19 08:22 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apR-Nz-cZM">
-                                        <rect key="frame" x="8" y="158" width="146" height="21"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vIz-Me-Gck">
+                                        <rect key="frame" x="0.0" y="8" width="66" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="Jzq-7W-hCr"/>
+                                            <constraint firstAttribute="height" constant="64" id="vrJ-ox-M3n"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="screen name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifU-m8-vb5">
+                                        <rect key="frame" x="74" y="37" width="191" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vIz-Me-Gck">
-                                        <rect key="frame" x="8" y="8" width="66" height="64"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPa-fB-jB6">
                                 <rect key="frame" x="0.0" y="247" width="375" height="41"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR7-bI-6io">
-                                        <rect key="frame" x="8" y="8" width="28" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RETWEETS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qo3-oz-fAd">
-                                        <rect key="frame" x="37" y="10" width="91" height="21"/>
+                                        <rect key="frame" x="76" y="10" width="91" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6U8-sP-tX3">
-                                        <rect key="frame" x="136" y="10" width="28" height="21"/>
+                                        <rect key="frame" x="207" y="10" width="28" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FAVOURITES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thp-q3-6T9">
-                                        <rect key="frame" x="172" y="10" width="91" height="21"/>
+                                        <rect key="frame" x="243" y="10" width="91" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qR7-bI-6io">
+                                        <rect key="frame" x="40" y="10" width="28" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -268,17 +279,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xIO-8r-Qg2">
-                                <rect key="frame" x="0.0" y="289" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="289" width="375" height="191"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RO2-F0-QpL">
-                                        <rect key="frame" x="138" y="5" width="26" height="29"/>
-                                        <state key="normal" title="Button" image="Retweet"/>
-                                        <connections>
-                                            <action selector="retweetButtonTap:" destination="bUg-UR-lHq" eventType="touchUpInside" id="IBo-23-6cj"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yx6-ax-4j5">
-                                        <rect key="frame" x="222" y="4" width="23" height="30"/>
+                                        <rect key="frame" x="260" y="4" width="23" height="30"/>
                                         <state key="normal" title="Button" image="Favorite"/>
                                         <connections>
                                             <action selector="favButtonTap:" destination="bUg-UR-lHq" eventType="touchUpInside" id="Rz9-Fg-xS5"/>
@@ -287,6 +291,22 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF2-Iv-cts">
                                         <rect key="frame" x="53" y="5" width="28" height="29"/>
                                         <state key="normal" title="Button" image="Reply"/>
+                                        <connections>
+                                            <action selector="replyButtonTap:" destination="bUg-UR-lHq" eventType="touchUpInside" id="q8m-rq-ORy"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="type reply to the tweet here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Wg-gE-1sZ">
+                                        <rect key="frame" x="8" y="48" width="359" height="105"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RO2-F0-QpL">
+                                        <rect key="frame" x="158" y="5" width="26" height="29"/>
+                                        <state key="normal" title="Button" image="Retweet"/>
+                                        <connections>
+                                            <action selector="retweetButtonTap:" destination="bUg-UR-lHq" eventType="touchUpInside" id="IBo-23-6cj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -294,8 +314,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7Lc-bY-SuE">
-                        <barButtonItem key="rightBarButtonItem" title="Reply" id="Gfd-zb-XdC"/>
+                    <navigationItem key="navigationItem" title="Tweet" id="7Lc-bY-SuE">
+                        <barButtonItem key="rightBarButtonItem" title="Reply" id="Gfd-zb-XdC">
+                            <connections>
+                                <action selector="onReply:" destination="bUg-UR-lHq" id="SuD-LP-Fiu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="favouriteCountLabel" destination="6U8-sP-tX3" id="vlk-hm-pVg"/>
@@ -303,6 +327,7 @@
                         <outlet property="nameLabel" destination="cbI-FF-MQO" id="dw1-Vk-qqZ"/>
                         <outlet property="profileImageView" destination="vIz-Me-Gck" id="O0t-IN-zf1"/>
                         <outlet property="replyButton" destination="OF2-Iv-cts" id="XTL-pG-KBx"/>
+                        <outlet property="replyTweetTextView" destination="9Wg-gE-1sZ" id="GDw-D2-Lsb"/>
                         <outlet property="retweetButton" destination="RO2-F0-QpL" id="NSV-rO-2bs"/>
                         <outlet property="retweetCountLabel" destination="qR7-bI-6io" id="2xL-i1-rPw"/>
                         <outlet property="screenNameLabel" destination="ifU-m8-vb5" id="xuo-Vg-FZG"/>
